@@ -10,13 +10,13 @@ while True:
         name = input("Enter player name: ").strip()
         if name not in players:
             # Each player has stats stored in a dictionary
-            players[name] = {'points': 0, 'rebounds': 0, 'assists': 0}
+            players[name] = {'points': 0, 'rebounds': 0, 'assists': 0, 'steals':0, 'blocks':0, 'turnovers':0, 'fouls':0}
         else:
             print("Player already exists.")
     elif action == 'record':
         name = input("Enter player name: ").strip()
         if name in players:
-            stat = input("Enter stat type (points, rebounds, assists): ").strip().lower()
+            stat = input("Enter stat type (points, rebounds, assists, steals, blocks, turnovers, fouls): ").strip().lower()
             if stat in players[name]:
                 value = int(input("Enter value: "))
                 players[name][stat] += value
@@ -34,7 +34,7 @@ while True:
             print("Player not found.")
     elif action == 'show_team':
         print("Team Stats:")
-        team_totals = {'points': 0, 'rebounds': 0, 'assists': 0}
+        team_totals = {'points': 0, 'rebounds': 0, 'assists': 0, 'steals':0, 'blocks':0, 'turnovers':0, 'fouls':0}
         for stats in players.values():
             for stat in team_totals:
                 team_totals[stat] += stats[stat]
@@ -45,3 +45,6 @@ while True:
         break
     else:
         print("Invalid option.")
+           
+    
+
